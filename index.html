@@ -1,214 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player selecting site</title>
-    <!-- bootstrap css file-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream XI Selector - Select Your Dream Team</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="animated-bg"></div>
 
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
-    
-    <!-- css file link -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="body">
-    <!-- header section started -->
-    <header class="header bg-dark">
-        <div>
-            <img src="images/player.png" alt="">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/53/53283.png"
+          alt="Football"
+          class="header-img" />
+
+        <div class="header-text">
+          <h1>Dream XI Selector</h1>
+          <p>
+            Build your dream team! Select up to 5 world-class players and manage
+            your budget like a pro. Calculate costs and create the ultimate
+            squad.
+          </p>
         </div>
-        <div class="paragraph text-center">
-            <h1 class="head text-warning">Select Your max-5 favourite Players</h1>
-            <p class="text-white-50">Here you can easily select your favourite football player. Also hire them giving respectful amount Which they want. Here you select their budget before hiring</p>
-        </div>
+      </div>
     </header>
-    <!-- header section end -->
 
-    <!-- main section started -->
-    <main class="container pt-5 mt-2">
-
-      
-     <div class="d-flex">
-      <div>
-        <section class="first-section">
-          <div class="d-flex ">
-            <!-- card1 -->
-                <div>
-                    <div class="card" style="width: 17rem;">
-                        <img src="images/Neymar Jr.png" class="card-img-top" alt="...">
-                        <div class="card-body text-center bg-dark text-light">
-                          <h5 class="card-title">Neymar Jr</h5>
-                          <p class="card-text text-white-50">36 Goals .
-                            120 Assist</p>
-                          <button id="Btn" class="btn btn-primary px-5 mx-5" onclick="addToCart(this);disable(this)">SELECT</button>
-                        </div>
-                      </div>
-                </div>
-            
-    <!-- card2 -->
-             <div class="full-card">
-                <div class="card" style="width: 17rem;">
-                    <img src="images/Toni Kroos.png" class="card-img-top" alt="...">
-                    <div class="card-body text-center bg-dark text-light">
-                      <h5 class="card-title">Toni Kroos</h5>
-                      <p class="card-text text-white-50">36 Goals .
-                            120 Assist</p>
-                            <button class="btn btn-primary px-5 mx-5" onclick="addToCart(this);disable(this)">SELECT</button>
-                    </div>
-                  </div>
-             </div>
-    <!-- card3 -->
-              <div class="full-card">
-                <div class="card" style="width: 17rem;">
-                    <img src="images/Lionel Messi.jpg" class="card-img-top" alt="...">
-                    <div class="card-body text-center bg-dark text-light">
-                      <h5 class="card-title">Lionel Messi</h5>
-                      <p class="card-text text-white-50">36 Goals .
-                            120 Assist</p>
-                            <button class="btn btn-primary px-5 mx-5" onclick="addToCart(this);disable(this)">SELECT</button>
-                    </div>
-                  </div>
-    
-              </div>
-    
-            
-              
+    <div class="container">
+      <div id="error-message" class="error-message"></div>
+      <div class="stats-overview">
+        <div class="row">
+          <div class="col-md-4 stat-card">
+            <div class="stat-number" id="available-players">6</div>
+            <div class="stat-label">Available Players</div>
+          </div>
+          <div class="col-md-4 stat-card">
+            <div class="stat-number" id="selected-count">0</div>
+            <div class="stat-label">Selected Players</div>
+          </div>
+          <div class="col-md-4 stat-card">
+            <div class="stat-number" id="remaining-slots">5</div>
+            <div class="stat-label">Remaining Slots</div>
+          </div>
         </div>
-         </section>
-      
-            <section class="second-section">
-                <div class="d-flex">
-                  <!-- card4 -->
-                    <div>
-                        <div class="card" style="width: 17rem;">
-                            <img src="images/Renato Sanches.png" class="card-img-top" alt="...">
-                            <div class="card-body text-center bg-dark text-light">
-                              <h5 class="card-title">Renato Sanches</h5>
-                              <p class="card-text text-white-50">36 Goals .
-                                120 Assist</p>
-                                <button class="btn btn-primary px-5 mx-5" onclick="addToCart(this);disable(this)">SELECT</button>
-                            </div>
-                          </div>
-                    </div>
-                
-      <!-- card5 -->
-                 <div class="full-card">
-                    <div class="card" style="width: 17rem;">
-                        <img src="images/Sergio Ramos.png" class="card-img-top" alt="...">
-                        <div class="card-body text-center bg-dark text-light">
-                          <h5 class="card-title">Sergio Ramos</h5>
-                          <p class="card-text text-white-50">36 Goals .
-                                120 Assist</p>
-                                <button class="btn btn-primary px-5 mx-5" onclick="addToCart(this);disable(this)">SELECT</button>
-                        </div>
-                      </div>
-                 </div>
-        <!-- card6 -->
-                  <div class="full-card">
-                    <div class="card" style="width: 17rem;">
-                        <img src="images/Vítor Machado.png" class="card-img-top" alt="...">
-                        <div class="card-body text-center bg-dark text-light">
-                          <h5 class="card-title">Vítor Machado</h5>
-                          <p class="card-text text-white-50">36 Goals .
-                                120 Assist</p>
-                                <button class="btn btn-primary px-5 mx-5" onclick="addToCart(this);disable(this)">SELECT</button>
-                        </div>
-                      </div>
-      
-                  </div>
-                </section>
-       </div>
-      
-               <!-- selective part -->
-              <div> 
-                <section class="ps-4">
-                <div>
-                  <div class="full-card">
-                    <div class="card" style="width: 17rem;">
-                        
-                        <div id="" class="card-body bg-dark">
-                          <h5 class="head card-title fw-bold pt-2 fs-4 text-warning text-center">Selected-<span id="total-added-player" class="">0</span></h5>
-                          <hr class="text-light">
-                          
-                           <div class="">
-                        <table class="table table-borderless w-full text-light">
-                          
-                          <tbody id="cart-product">
-                            <tr>
-                                 <!-- <th>1</th>
-                                <td>Cy Ganderton</td>  -->
-                                
-                              </tr>
-                          </tbody>
-                        </table>
-                      </div>  
-      
-                     
-      
-      
-      
-                        </div>
-                      </div>
-                 </div>
-                    <!-- budget calculation part -->
-                   <div class="full-card mt-3">
-                      <div class="card bg-dark" style="width: 17rem;">
-                          
-                          <div class="card-body">
-                            <h5 class="head card-title fw-bold pt-3 fs-4 text-warning text-center pb-2">Budget</h5>
-                            <hr class="text-light">
-                            <div class="d-flex pt-2">
-                              <h6 class="text-light fw-normal ms-2">Per Player</h6>
-                              <input class="w-50 ms-4 mb-3 border border-white bg-dark text-light" type="text" name="" id="perplayer-rate" placeholder="1000">
-                            </div>
-                            <button id="btn-calculate" class="btn btn-primary px-5 mx-5 mb-2">Calculate</button> 
-                            <div class="d-flex mt-2 mb-2">
-                              <h6 class="text-light fw-normal ms-2">Player Expenses</h6>
-                              <h6 class="text-light ms-5 ">$<span id="player-expenses">00</span></h6>
-                            </div>
-                            <div class="d-flex">
-                              <h6 id="manager-expenses" class="text-light fw-normal ms-2 me-2">Manager</h6>
-                              <input class="w-50 ms-4 ps-1 mb-3 border border-white bg-dark text-light" type="text" name="" id="manager-rate" placeholder="1000">
-                            </div>
-                            <div class="d-flex">
-                              <h6 id="coach-expenses" class="text-light fw-normal ms-2 me-1">Coach</h6>
-                              <input class="w-50 ms-5 mb-3 border border-white bg-dark text-light" type="text" name="" id="coach-rate" placeholder="1000">
-                            </div>
-                            <button id="btn-calculate-total" class="btn btn-primary mx-5 px-3">Calculate Total</button>
-                            <div class="d-flex mt-2 mb-2">
-                              <h6 class="text-light fw-normal ms-2">Total</h6>
-                              <h6 class=" ms-5 ps-5 text-warning">$<span id="total-expenses">00</span></h6>
-                            </div>
-                          </div>
-                        </div>
-                   </div>
-                 </div>
-                </div>
-               </section>
-              </div>
-          
-     </div>
-    </main>
-    <!-- main end -->
+        <div class="progress-bar-custom">
+          <div
+            class="progress-fill"
+            id="selection-progress"
+            style="width: 0%"></div>
+        </div>
+      </div>
 
-    <!-- footer started -->
-    <footer class="text-center pt-2 mt-5">
-       <hr class="bar w-75">
-        <p class="text-dark">Copyright @ 2022 All Rights Reserved.</p>
+      <div class="row">
+        <!-- Players Section -->
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-md-6 col-lg-4">
+              <div class="player-card">
+                <img src="images/Neymar Jr.png" alt="Neymar Jr" />
+                <div class="player-info">
+                  <div class="player-name">Neymar Jr</div>
+                  <div class="player-stats">36 Goals • 120 Assists</div>
+                  <button class="select-btn" onclick="addToCart(this)">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Player 2 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="player-card">
+                <img src="images/Toni Kroos.png" alt="Toni Kroos" />
+                <div class="player-info">
+                  <div class="player-name">Toni Kroos</div>
+                  <div class="player-stats">36 Goals • 120 Assists</div>
+                  <button class="select-btn" onclick="addToCart(this)">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Player 3 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="player-card">
+                <img src="images/Lionel Messi.jpg" alt="Lionel Messi" />
+                <div class="player-info">
+                  <div class="player-name">Lionel Messi</div>
+                  <div class="player-stats">36 Goals • 120 Assists</div>
+                  <button class="select-btn" onclick="addToCart(this)">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Player 4 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="player-card">
+                <img src="images/Renato Sanches.png" alt="Renato Sanches" />
+                <div class="player-info">
+                  <div class="player-name">Renato Sanches</div>
+                  <div class="player-stats">36 Goals • 120 Assists</div>
+                  <button class="select-btn" onclick="addToCart(this)">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Player 5 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="player-card">
+                <img src="images/Sergio Ramos.png" alt="Sergio Ramos" />
+                <div class="player-info">
+                  <div class="player-name">Sergio Ramos</div>
+                  <div class="player-stats">36 Goals • 120 Assists</div>
+                  <button class="select-btn" onclick="addToCart(this)">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Player 6 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="player-card">
+                <img src="images/Vítor Machado.png" alt="Vítor Machado" />
+                <div class="player-info">
+                  <div class="player-name">Vítor Machado</div>
+                  <div class="player-stats">36 Goals • 120 Assists</div>
+                  <button class="select-btn" onclick="addToCart(this)">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selection Panel -->
+        <div class="col-lg-4">
+          <div class="selection-panel">
+            <div class="panel-card">
+              <div class="panel-header">
+                Selected Players (<span id="total-selected">0</span>/5)
+              </div>
+              <div id="selected-players-list">
+                <p style="text-align: center; color: #999; padding: 20px">
+                  No players selected yet
+                </p>
+              </div>
+            </div>
+
+            <!-- Budget Calculator -->
+            <div class="panel-card">
+              <div class="panel-header">Budget Calculator</div>
+
+              <div class="input-group-custom">
+                <label class="input-label">Per Player Cost ($)</label>
+                <input
+                  type="number"
+                  class="budget-input"
+                  id="per-player-rate"
+                  placeholder="Enter amount (e.g., 5000)"
+                  min="0" />
+              </div>
+
+              <button class="calculate-btn" onclick="calculatePlayerExpenses()">
+                Calculate Player Cost
+              </button>
+
+              <div class="expense-row">
+                <span class="expense-label">Player Expenses</span>
+                <span class="expense-value"
+                  >$<span id="player-expenses">0</span></span
+                >
+              </div>
+
+              <hr style="margin: 20px 0; border-color: #e0e0e0" />
+
+              <div class="input-group-custom">
+                <label class="input-label">Manager Cost ($)</label>
+                <input
+                  type="number"
+                  class="budget-input"
+                  id="manager-rate"
+                  placeholder="Enter amount (e.g., 1000)"
+                  min="0" />
+              </div>
+
+              <div class="input-group-custom">
+                <label class="input-label">Coach Cost ($)</label>
+                <input
+                  type="number"
+                  class="budget-input"
+                  id="coach-rate"
+                  placeholder="Enter amount (e.g., 500)"
+                  min="0" />
+              </div>
+
+              <button class="calculate-btn" onclick="calculateTotal()">
+                Calculate Total
+              </button>
+
+              <div class="total-expense">
+                <span>Total Budget</span>
+                <span>$<span id="total-expenses">0</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p style="margin: 0; font-size: 1.1rem">
+        ⚽ Dream XI Selector © 2025 update
+      </p>
+      <p style="margin: 5px 0 0 0; opacity: 0.8">All Rights Reserved</p>
     </footer>
 
-    
+    <script>
+      const selectedPlayers = [];
+      const MAX_PLAYERS = 5;
 
-    <!-- bootstrap js file -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <!-- js file link -->
-    <script src="select.js"></script>
-    <script src="calculate.js"></script>
-</body>
+      function showError(message) {
+        const errorDiv = document.getElementById("error-message");
+        errorDiv.textContent = message;
+        errorDiv.classList.add("show");
+        setTimeout(() => {
+          errorDiv.classList.remove("show");
+        }, 3000);
+      }
+
+      function updateStats() {
+        document.getElementById("selected-count").textContent =
+          selectedPlayers.length;
+        document.getElementById("total-selected").textContent =
+          selectedPlayers.length;
+        document.getElementById("remaining-slots").textContent =
+          MAX_PLAYERS - selectedPlayers.length;
+
+        const progressPercent = (selectedPlayers.length / MAX_PLAYERS) * 100;
+        document.getElementById("selection-progress").style.width =
+          progressPercent + "%";
+      }
+
+      function displaySelectedPlayers() {
+        const listContainer = document.getElementById("selected-players-list");
+
+        if (selectedPlayers.length === 0) {
+          listContainer.innerHTML =
+            '<p style="text-align: center; color: #999; padding: 20px;">No players selected yet</p>';
+          return;
+        }
+
+        listContainer.innerHTML = "";
+        selectedPlayers.forEach((player, index) => {
+          const playerItem = document.createElement("div");
+          playerItem.className = "selected-player-item";
+          playerItem.innerHTML = `
+                    <span><strong>${index + 1}.</strong> ${player.name}</span>
+                    <button class="remove-btn" onclick="removePlayer(${index})" title="Remove player">×</button>
+                `;
+          listContainer.appendChild(playerItem);
+        });
+      }
+
+      function addToCart(button) {
+        if (selectedPlayers.length >= MAX_PLAYERS) {
+          showError("⚠️ Maximum 5 players can be selected!");
+          alert("⚠️ Maximum 5 players can be selected!");
+          return;
+        }
+
+        const playerName =
+          button.parentNode.querySelector(".player-name").textContent;
+
+        const alreadySelected = selectedPlayers.some(
+          (player) => player.name === playerName
+        );
+        if (alreadySelected) {
+          showError("⚠️ Player already selected!");
+          return;
+        }
+
+        selectedPlayers.push({ name: playerName, button: button });
+        button.disabled = true;
+        button.textContent = "Selected";
+
+        updateStats();
+        displaySelectedPlayers();
+      }
+
+      function removePlayer(index) {
+        const player = selectedPlayers[index];
+        player.button.disabled = false;
+        player.button.textContent = "Select";
+
+        selectedPlayers.splice(index, 1);
+
+        updateStats();
+        displaySelectedPlayers();
+      }
+
+      function calculatePlayerExpenses() {
+        const perPlayerInput = document.getElementById("per-player-rate");
+        const perPlayerRate = parseFloat(perPlayerInput.value);
+
+        if (!perPlayerRate || perPlayerRate <= 0) {
+          showError("⚠️ Please enter a valid amount per player!");
+          return;
+        }
+
+        if (selectedPlayers.length === 0) {
+          showError("⚠️ Please select at least one player first!");
+          return;
+        }
+
+        const totalPlayerExpenses = perPlayerRate * selectedPlayers.length;
+        document.getElementById("player-expenses").textContent =
+          totalPlayerExpenses.toFixed(2);
+      }
+
+      function calculateTotal() {
+        const playerExpenses =
+          parseFloat(document.getElementById("player-expenses").textContent) ||
+          0;
+        const managerRate =
+          parseFloat(document.getElementById("manager-rate").value) || 0;
+        const coachRate =
+          parseFloat(document.getElementById("coach-rate").value) || 0;
+
+        if (managerRate < 0 || coachRate < 0) {
+          showError("⚠️ Costs cannot be negative!");
+          return;
+        }
+
+        if (playerExpenses === 0) {
+          showError("⚠️ Please calculate player expenses first!");
+          return;
+        }
+
+        const total = playerExpenses + managerRate + coachRate;
+        document.getElementById("total-expenses").textContent =
+          total.toFixed(2);
+      }
+    </script>
+  </body>
 </html>
-
